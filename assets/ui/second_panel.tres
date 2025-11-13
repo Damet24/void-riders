@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://cpacdicaqkr4a"]
+
+[ext_resource type="Texture2D" uid="uid://dp2rfugr42rel" path="res://assets/SpaceShooterAssetPack_IU.png" id="1_mciup"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1j6l"]
+atlas = ExtResource("1_mciup")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+texture = SubResource("AtlasTexture_e1j6l")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 16, 16)

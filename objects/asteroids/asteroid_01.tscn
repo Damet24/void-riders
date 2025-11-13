@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dom7wr786h0fq"]
+
+[ext_resource type="Texture2D" uid="uid://bn3ds814imfih" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="1_e1qaq"]
+[ext_resource type="Script" uid="uid://q5236uuy5g43" path="res://objects/asteroids/asteroid.gd" id="1_mamkg"]
+[ext_resource type="PackedScene" uid="uid://b8d3uqh4vfxvw" path="res://components/damage_component/damage_component.tscn" id="2_1cey7"]
+[ext_resource type="Texture2D" uid="uid://cfuuo2jta6uan" path="res://assets/64x64 textures (99).png" id="4_acgu6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07m6c"]
+atlas = ExtResource("1_e1qaq")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74x6l"]
+radius = 7.0
+
+[node name="Asteroid01" type="Node2D"]
+script = ExtResource("1_mamkg")
+min_speed = 10.0
+max_speed = 170.0
+min_rotation_speed = null
+max_rotation_speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_07m6c")
+
+[node name="DamageComponent" parent="." instance=ExtResource("2_1cey7")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+shape = SubResource("CircleShape2D_74x6l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2.03125, 2.03125)
+energy = 0.3
+texture = ExtResource("4_acgu6")
+texture_scale = 0.2
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

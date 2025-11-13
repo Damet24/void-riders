@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwgh15rs7gmvc"]
+
+[ext_resource type="PackedScene" uid="uid://ctyconkxd84xp" path="res://objects/items/item.tscn" id="1_3gipy"]
+[ext_resource type="Texture2D" uid="uid://bn3ds814imfih" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="2_pyeji"]
+[ext_resource type="Script" uid="uid://bxl6dwp7pp6u8" path="res://objects/items/bullet_upgrade/bullet_upgrade.gd" id="2_tkq8o"]
+[ext_resource type="Texture2D" uid="uid://cfuuo2jta6uan" path="res://assets/64x64 textures (99).png" id="3_tkq8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qpss"]
+atlas = ExtResource("2_pyeji")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qpss"]
+radius = 8.0
+
+[node name="BulletUpgrade" instance=ExtResource("1_3gipy")]
+script = ExtResource("2_tkq8o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_2qpss")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+scale = Vector2(0.46875, 0.46875)
+color = Color(1, 0.9529412, 0.57254905, 1)
+energy = 0.3
+texture = ExtResource("3_tkq8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+shape = SubResource("CircleShape2D_2qpss")

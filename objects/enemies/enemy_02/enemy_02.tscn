@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ngcyafj2meye"]
+
+[ext_resource type="PackedScene" uid="uid://bq7ai3k71833q" path="res://objects/enemies/enemy_01/enemy_01.tscn" id="1_x8txg"]
+[ext_resource type="Script" uid="uid://bxwbbitgpgueb" path="res://objects/enemies/enemy_02/enemy_02.gd" id="2_t8n1v"]
+[ext_resource type="Texture2D" uid="uid://c0py7qsilfxdx" path="res://assets/SpaceShooterAssetPack_Ships.png" id="3_f20d6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxpp0"]
+atlas = ExtResource("3_f20d6")
+region = Rect2(40, 0, 8, 8)
+
+[node name="Enemy02" instance=ExtResource("1_x8txg")]
+script = ExtResource("2_t8n1v")
+amplitude = 70.0
+frequency = 0.5
+score = 140
+speed = 45.0
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-1, -0.5)
+texture = SubResource("AtlasTexture_uxpp0")

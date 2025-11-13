@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crt7qwm1rjpib"]
+
+[ext_resource type="Script" uid="uid://b5bby1wt2m1fk" path="res://components/hurt_component/hurt_component.gd" id="1_iol10"]
+
+[node name="HurtComponent" type="CharacterBody2D"]
+script = ExtResource("1_iol10")

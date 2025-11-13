@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://25gt4d456hod"]
+
+[ext_resource type="Script" uid="uid://nnd17x0q5lha" path="res://components/shoot_component/shoot_component.gd" id="1_ijhtr"]
+
+[node name="ShootComponent" type="Node2D" node_paths=PackedStringArray("wait_timer", "cooldown_timer")]
+script = ExtResource("1_ijhtr")
+wait_timer = NodePath("WaitTimer")
+cooldown_timer = NodePath("ColddownTimer")
+wait_time = 0.1
+cooldown_time = 0.1
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ColddownTimer" type="Timer" parent="."]
+one_shot = true

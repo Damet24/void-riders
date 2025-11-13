@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://8whhiqilvsm2"]
+
+[ext_resource type="PackedScene" uid="uid://bq7ai3k71833q" path="res://objects/enemies/enemy_01/enemy_01.tscn" id="1_qo1ih"]
+[ext_resource type="Texture2D" uid="uid://c0py7qsilfxdx" path="res://assets/SpaceShooterAssetPack_Ships.png" id="2_rec1h"]
+[ext_resource type="PackedScene" uid="uid://25gt4d456hod" path="res://components/shoot_component/shoot_component.tscn" id="3_6pqd7"]
+[ext_resource type="PackedScene" uid="uid://b2qwe67r0jy62" path="res://objects/bullets/bullet_01.tscn" id="4_ag154"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6jnt"]
+atlas = ExtResource("2_rec1h")
+region = Rect2(72, 40, 8, 8)
+
+[node name="Enemy08" instance=ExtResource("1_qo1ih")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_t6jnt")
+
+[node name="HealthComponent" parent="." index="2"]
+max_health = 5
+
+[node name="ShootComponent" parent="." index="5" node_paths=PackedStringArray("raycast") instance=ExtResource("3_6pqd7")]
+bullet_scene = ExtResource("4_ag154")
+bullet_count = 4
+spread_angle = 30.0
+shoot_type = "Spread"
+wait_time = 0.05
+raycast = NodePath("RayCast2D")
+
+[node name="RayCast2D" type="RayCast2D" parent="ShootComponent" index="2"]
+target_position = Vector2(148, 0)
+collision_mask = 2

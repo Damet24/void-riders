@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq884rgxexco0"]
+
+[ext_resource type="PackedScene" uid="uid://b2qwe67r0jy62" path="res://objects/bullets/bullet_01.tscn" id="1_42vcu"]
+[ext_resource type="Texture2D" uid="uid://cac626fvognxu" path="res://assets/SpaceShooterAssetPack_Projectiles.png" id="2_3kgvj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eofa8"]
+atlas = ExtResource("2_3kgvj")
+region = Rect2(0, 48, 8, 8)
+
+[node name="Bullet10" instance=ExtResource("1_42vcu")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-7, 1.5)
+rotation = 0.7853982
+texture = SubResource("AtlasTexture_eofa8")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctyconkxd84xp"]
+
+[ext_resource type="Script" uid="uid://b6e3f5aulj5s4" path="res://objects/items/item.gd" id="1_xkfuv"]
+[ext_resource type="AudioStream" uid="uid://b0v5xg1qpbypw" path="res://assets/sounds/Bfxr/PowerUp1.wav" id="2_03wm1"]
+
+[node name="Item" type="Area2D" node_paths=PackedStringArray("audio", "timer")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_xkfuv")
+audio = NodePath("AudioStreamPlayer")
+timer = NodePath("Timer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_03wm1")
+bus = &"Sfx"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5

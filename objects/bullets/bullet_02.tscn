@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://0gxbawmuhxu4"]
+
+[ext_resource type="PackedScene" uid="uid://b2qwe67r0jy62" path="res://objects/bullets/bullet_01.tscn" id="1_a33dn"]
+[ext_resource type="Texture2D" uid="uid://cac626fvognxu" path="res://assets/SpaceShooterAssetPack_Projectiles.png" id="2_3o3qm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e2ym"]
+atlas = ExtResource("2_3o3qm")
+region = Rect2(8, 0, 8, 8)
+
+[node name="Bullet02" instance=ExtResource("1_a33dn")]
+damage = 2
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 2)
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_7e2ym")
+
+[node name="PointLight2D" parent="." index="3"]
+color = Color(1, 0.79271233, 0.4630474, 1)

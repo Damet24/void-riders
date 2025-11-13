@@ -1,0 +1,510 @@
+[gd_scene load_steps=14 format=3 uid="uid://c1vuluxef5i01"]
+
+[ext_resource type="PackedScene" uid="uid://bq7ai3k71833q" path="res://objects/enemies/enemy_01/enemy_01.tscn" id="1_dqqj4"]
+[ext_resource type="Texture2D" uid="uid://c0py7qsilfxdx" path="res://assets/SpaceShooterAssetPack_Ships.png" id="2_bbiba"]
+[ext_resource type="PackedScene" uid="uid://25gt4d456hod" path="res://components/shoot_component/shoot_component.tscn" id="3_4cami"]
+[ext_resource type="PackedScene" uid="uid://cmlnfvdq84eo3" path="res://objects/bullets/bullet_11.tscn" id="4_4tlrt"]
+[ext_resource type="PackedScene" uid="uid://b8b1q0x4xcr1" path="res://objects/bullets/bullet_08.tscn" id="5_dcgpc"]
+[ext_resource type="PackedScene" uid="uid://b31hfwl6630kf" path="res://objects/bullets/bullet_07.tscn" id="6_4cami"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kh2s"]
+atlas = ExtResource("2_bbiba")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndhme"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1j4c8"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_4cami"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(340, 90), Vector2(300, 90)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"boss"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4tlrt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShootComponent:aim_to_player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dcgpc"]
+resource_name = "boss"
+length = 25.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3, 6, 8, 11, 13, 16.5, 17.5, 18.5, 19.5, 20.5, 21.5, 22.5, 23.5, 24.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 90), Vector2(300, 90), Vector2(300, 30), Vector2(300, 30), Vector2(300, 160), Vector2(300, 160), Vector2(300, 90), Vector2(300, 90), Vector2(300, 65), Vector2(300, 90), Vector2(300, 115), Vector2(300, 90), Vector2(300, 65), Vector2(300, 90), Vector2(300, 115), Vector2(300, 90)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShootComponent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2, 2.5, 3.2922034, 3.4929755, 3.7941337, 4.509384, 4.7666235, 5.0175886, 5.7516613, 6.5, 7, 7.5, 8.269566, 8.470338, 8.771496, 9.486746, 9.743986, 9.994951, 10.729023, 11.5, 12, 12.5, 13.296442, 13.497214, 13.798372, 14.513622, 14.770863, 15.021828, 15.755899, 16.014893, 16.259583),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShootComponent2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3, 16.738646, 17, 17.273512, 17.5, 17.766668, 18, 18.289219, 18.521534, 18.800001, 19.018581, 19.242773, 19.4967, 19.750626, 20.006405, 20.215258, 20.500002, 20.766668, 21.008394, 21.278528, 21.500038, 21.797186, 22.013294, 22.24561, 22.499727, 22.766394, 23.00812, 23.278254, 23.499763, 23.796911, 24.01302, 24.245335, 25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShootComponent3")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3, 16.733334, 16.984877, 17.266668, 17.487326, 17.773668, 17.995178, 18.29773, 18.503033, 18.800001, 19.000002, 19.233334, 19.500002, 19.766668, 20.000002, 20.266668, 20.500002, 20.766668, 21.033335, 21.266668, 21.500002, 21.766668, 22.000002, 22.266668, 22.500002, 22.766668, 23.000002, 23.266668, 23.500002, 23.800001, 24.000002, 24.233335, 25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShootComponent4")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 7, 12, 14, 14.5, 15, 15.5, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShootComponent:aim_to_player")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3, 6, 8, 11, 13, 16.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcgpc"]
+_data = {
+&"RESET": SubResource("Animation_4tlrt"),
+&"boss": SubResource("Animation_dcgpc"),
+&"start": SubResource("Animation_4cami")
+}
+
+[node name="Enemy13" instance=ExtResource("1_dqqj4")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_8kh2s")
+
+[node name="HealthComponent" parent="." index="2"]
+max_health = 350
+
+[node name="CollisionShape2D" parent="HurtComponent" index="0"]
+shape = SubResource("CircleShape2D_ndhme")
+
+[node name="CollisionShape2D" parent="DamageComponent" index="0"]
+shape = SubResource("CircleShape2D_1j4c8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_dcgpc")
+}
+autoplay = "start"
+
+[node name="ShootComponent" parent="." index="6" instance=ExtResource("3_4cami")]
+position = Vector2(6, 0)
+bullet_scene = ExtResource("4_4tlrt")
+
+[node name="ShootComponent2" parent="." index="7" instance=ExtResource("3_4cami")]
+position = Vector2(6, -7)
+bullet_scene = ExtResource("5_dcgpc")
+
+[node name="ShootComponent3" parent="." index="8" instance=ExtResource("3_4cami")]
+position = Vector2(6, 7)
+bullet_scene = ExtResource("5_dcgpc")
+
+[node name="ShootComponent4" parent="." index="9" instance=ExtResource("3_4cami")]
+bullet_scene = ExtResource("6_4cami")
+bullet_count = 10
+shoot_type = "Circle"
+aim_to_player = true

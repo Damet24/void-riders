@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://bq7ai3k71833q"]
+
+[ext_resource type="Script" uid="uid://b7sx32pys65yw" path="res://objects/enemies/enemy_01/enemy_01.gd" id="1_dylr8"]
+[ext_resource type="Texture2D" uid="uid://c0py7qsilfxdx" path="res://assets/SpaceShooterAssetPack_Ships.png" id="1_nkgvf"]
+[ext_resource type="PackedScene" uid="uid://bpip37xe4aowp" path="res://components/health_component/health_component.tscn" id="2_h07sa"]
+[ext_resource type="PackedScene" uid="uid://cf2swa7xxcmhu" path="res://objects/explosions/explosion_01/explosion_01.tscn" id="2_ulk8u"]
+[ext_resource type="PackedScene" uid="uid://crt7qwm1rjpib" path="res://components/hurt_component/hurt_component.tscn" id="3_kt3gn"]
+[ext_resource type="AudioStream" uid="uid://cbr6swodhkfjr" path="res://assets/sounds/Bfxr/Hit1.wav" id="6_u3a85"]
+[ext_resource type="PackedScene" uid="uid://b8d3uqh4vfxvw" path="res://components/damage_component/damage_component.tscn" id="7_elcw5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnu2h"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbhrr"]
+atlas = ExtResource("1_nkgvf")
+region = Rect2(33, 0, 7, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulk8u"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_elcw5"]
+radius = 3.1622777
+
+[node name="Enemy01" type="CharacterBody2D" node_paths=PackedStringArray("health_component")]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_dylr8")
+health_component = NodePath("HealthComponent")
+explosion_scene = ExtResource("2_ulk8u")
+speed = 60.0
+metadata/_custom_type_script = "uid://dxu1hniyge2h8"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("CircleShape2D_lnu2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+rotation = -1.5707964
+texture = SubResource("AtlasTexture_lbhrr")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_h07sa")]
+max_health = 4
+
+[node name="HurtComponent" parent="." node_paths=PackedStringArray("health_component", "sound") instance=ExtResource("3_kt3gn")]
+collision_layer = 4
+collision_mask = 8
+health_component = NodePath("../HealthComponent")
+sound = NodePath("HurtSound")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_ulk8u")
+debug_color = Color(0.99725705, 0, 0.179569, 0.41960785)
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="HurtComponent"]
+stream = ExtResource("6_u3a85")
+
+[node name="DamageComponent" parent="." instance=ExtResource("7_elcw5")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+shape = SubResource("CircleShape2D_elcw5")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8b1q0x4xcr1"]
+
+[ext_resource type="PackedScene" uid="uid://b2qwe67r0jy62" path="res://objects/bullets/bullet_01.tscn" id="1_rm7cn"]
+[ext_resource type="Texture2D" uid="uid://cac626fvognxu" path="res://assets/SpaceShooterAssetPack_Projectiles.png" id="2_u73tx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xcft"]
+atlas = ExtResource("2_u73tx")
+region = Rect2(8, 16, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rfmy"]
+radius = 4.1231055
+
+[node name="Bullet08" instance=ExtResource("1_rm7cn")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-3, 2)
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_3xcft")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_8rfmy")

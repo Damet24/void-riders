@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjc6dl0r0f6hm"]
+
+[ext_resource type="PackedScene" uid="uid://bq7ai3k71833q" path="res://objects/enemies/enemy_01/enemy_01.tscn" id="1_lc4r5"]
+[ext_resource type="Texture2D" uid="uid://c0py7qsilfxdx" path="res://assets/SpaceShooterAssetPack_Ships.png" id="2_0g12y"]
+[ext_resource type="PackedScene" uid="uid://25gt4d456hod" path="res://components/shoot_component/shoot_component.tscn" id="3_r6e7u"]
+[ext_resource type="PackedScene" uid="uid://bvhxc62bwckyt" path="res://objects/bullets/bullet_05.tscn" id="4_a8qj8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtl3y"]
+atlas = ExtResource("2_0g12y")
+region = Rect2(56, 32, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nul0"]
+radius = 122.016396
+
+[node name="Enemy07" instance=ExtResource("1_lc4r5")]
+score = 500
+speed = 10.0
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_rtl3y")
+
+[node name="HealthComponent" parent="." index="2"]
+max_health = 10
+
+[node name="ShootComponent" parent="." index="5" node_paths=PackedStringArray("area") instance=ExtResource("3_r6e7u")]
+bullet_scene = ExtResource("4_a8qj8")
+bullet_speed = 30.0
+collision_type = 1
+area = NodePath("Area2D")
+aim_to_player = true
+
+[node name="Area2D" type="Area2D" parent="ShootComponent" index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootComponent/Area2D" index="0"]
+shape = SubResource("CircleShape2D_2nul0")

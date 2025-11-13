@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctfmofaumpfrq"]
+
+[ext_resource type="PackedScene" uid="uid://ctyconkxd84xp" path="res://objects/items/item.tscn" id="1_cp65x"]
+[ext_resource type="Texture2D" uid="uid://bn3ds814imfih" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="2_aqx08"]
+[ext_resource type="Script" uid="uid://dbmaowkbub013" path="res://objects/items/power_up/power_up.gd" id="2_tjheb"]
+[ext_resource type="Texture2D" uid="uid://cfuuo2jta6uan" path="res://assets/64x64 textures (99).png" id="3_tjheb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ct0i"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_716cg"]
+atlas = ExtResource("2_aqx08")
+region = Rect2(0, 0, 8, 8)
+
+[node name="PowerUp" instance=ExtResource("1_cp65x")]
+script = ExtResource("2_tjheb")
+
+[node name="AudioStreamPlayer" parent="." index="0"]
+bus = &"Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_2ct0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+texture = SubResource("AtlasTexture_716cg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+color = Color(0.9999997, 0.8872627, 0.6415055, 1)
+energy = 0.3
+texture = ExtResource("3_tjheb")

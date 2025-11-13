@@ -1,0 +1,357 @@
+[gd_scene load_steps=12 format=3 uid="uid://cd5sxv35xdja6"]
+
+[ext_resource type="PackedScene" uid="uid://bq7ai3k71833q" path="res://objects/enemies/enemy_01/enemy_01.tscn" id="1_e2lxp"]
+[ext_resource type="Texture2D" uid="uid://c0py7qsilfxdx" path="res://assets/SpaceShooterAssetPack_Ships.png" id="2_6sp2r"]
+[ext_resource type="PackedScene" uid="uid://25gt4d456hod" path="res://components/shoot_component/shoot_component.tscn" id="3_6sp2r"]
+[ext_resource type="PackedScene" uid="uid://sxxxvdnwof0u" path="res://objects/bullets/bullet_04.tscn" id="4_xvunh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03umk"]
+atlas = ExtResource("2_6sp2r")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e2lxp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sp2r"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_03umk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xvunh"]
+resource_name = "boss"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootComponent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6333333, 0.8333333, 1, 1.7786086, 1.9786086, 2.145275, 3.022881, 3.222881, 3.3895478, 4.2531233, 4.453123, 4.61979, 5.566667, 5.766667, 5.933334, 6.1629276, 6.3629274, 6.5295944, 7.5806355, 7.7806354, 7.9473023, 9.326407, 9.526407, 9.693074, 13.651789, 13.884805, 14.13982, 14.378898, 17.766668, 17.999683, 18.2547, 18.493778, 25.225824, 25.45884, 25.713856, 25.952934, 28.867874, 29.10089, 29.355906, 29.594984),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 2.5666666, 5.0666666, 7.266667, 10.833334, 13.666667, 22.025509, 23.7, 26.2, 28.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(300, 90), Vector2(300, 90), Vector2(300, 20), Vector2(300, 20), Vector2(300, 160), Vector2(300, 160), Vector2(300, 90), Vector2(300, 90), Vector2(300, 70), Vector2(300, 110), Vector2(300, 86.44696)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShootComponent2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.0333333, 1.2591394, 1.514155, 2.454525, 2.6803312, 2.9353466, 3.7614799, 3.987286, 4.2423015, 4.972804, 5.1986103, 5.4536257, 6.7897897, 7.015596, 7.2706113, 8.319883, 8.54569, 8.800705, 13.651789, 13.9, 14.133333, 14.366667, 17.766668, 18.01488, 18.248213, 18.481546, 23.687475, 23.935686, 24.16902, 24.402353, 26.715786, 26.963997, 27.19733, 27.430664),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}, {
+"args": [],
+"method": &"_shoot"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6sp2r"]
+resource_name = "start"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.93333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"boss"],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(380, 90), Vector2(300, 90)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_03umk"]
+_data = {
+&"RESET": SubResource("Animation_03umk"),
+&"boss": SubResource("Animation_xvunh"),
+&"start": SubResource("Animation_6sp2r")
+}
+
+[node name="Enemy09" instance=ExtResource("1_e2lxp")]
+collision_layer = 0
+speed = 0.0
+
+[node name="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_03umk")
+
+[node name="HealthComponent" parent="." index="2"]
+max_health = 250
+
+[node name="CollisionShape2D" parent="HurtComponent" index="0"]
+shape = SubResource("CircleShape2D_e2lxp")
+
+[node name="CollisionShape2D" parent="DamageComponent" index="0"]
+shape = SubResource("CircleShape2D_6sp2r")
+
+[node name="ShootComponent" parent="." index="5" instance=ExtResource("3_6sp2r")]
+position = Vector2(3, -5)
+bullet_scene = ExtResource("4_xvunh")
+
+[node name="ShootComponent2" parent="." index="6" instance=ExtResource("3_6sp2r")]
+position = Vector2(3, 5)
+bullet_scene = ExtResource("4_xvunh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+&"": SubResource("AnimationLibrary_03umk")
+}
+autoplay = "start"

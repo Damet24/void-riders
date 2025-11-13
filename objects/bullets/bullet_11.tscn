@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmlnfvdq84eo3"]
+
+[ext_resource type="PackedScene" uid="uid://b2qwe67r0jy62" path="res://objects/bullets/bullet_01.tscn" id="1_ehn6j"]
+[ext_resource type="Texture2D" uid="uid://cac626fvognxu" path="res://assets/SpaceShooterAssetPack_Projectiles.png" id="2_q0g7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5n8v"]
+atlas = ExtResource("2_q0g7e")
+region = Rect2(32, 40, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_spwvk"]
+radius = 4.0
+
+[node name="Bullet11" instance=ExtResource("1_ehn6j")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-4.000001, 1.4)
+rotation = 0.7853982
+texture = SubResource("AtlasTexture_e5n8v")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_spwvk")
+
+[node name="PointLight2D" parent="." index="3"]
+color = Color(1, 0.7176471, 0.3019608, 1)

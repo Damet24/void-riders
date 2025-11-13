@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciy0f265bimfv"]
+
+[ext_resource type="PackedScene" uid="uid://ctyconkxd84xp" path="res://objects/items/item.tscn" id="1_u5a8m"]
+[ext_resource type="Script" uid="uid://caw01yqutrdmv" path="res://objects/items/shield/shield.gd" id="2_ujywx"]
+[ext_resource type="Texture2D" uid="uid://bn3ds814imfih" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="2_vy0if"]
+[ext_resource type="Texture2D" uid="uid://cfuuo2jta6uan" path="res://assets/64x64 textures (99).png" id="3_ujywx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4v4l"]
+atlas = ExtResource("2_vy0if")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1fn1"]
+radius = 7.0
+
+[node name="Shield" instance=ExtResource("1_u5a8m")]
+script = ExtResource("2_ujywx")
+
+[node name="AudioStreamPlayer" parent="." index="0"]
+bus = &"Master"
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_d4v4l")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+color = Color(0, 1, 1, 1)
+texture = ExtResource("3_ujywx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+shape = SubResource("CircleShape2D_q1fn1")

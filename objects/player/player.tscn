@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfjjspgrqc7t8"]
+
+[ext_resource type="Texture2D" uid="uid://c0py7qsilfxdx" path="res://assets/SpaceShooterAssetPack_Ships.png" id="1_cqmt1"]
+[ext_resource type="Script" uid="uid://bocn7db1c7c60" path="res://objects/player/player.gd" id="1_g7ett"]
+[ext_resource type="Script" uid="uid://du638gieg8flf" path="res://components/health_component/health_component.gd" id="4_gnkmh"]
+[ext_resource type="PackedScene" uid="uid://crt7qwm1rjpib" path="res://components/hurt_component/hurt_component.tscn" id="5_xkryw"]
+[ext_resource type="AudioStream" uid="uid://cky75fvw1qoww" path="res://assets/sounds/Bfxr/Shoot4.wav" id="6_xkryw"]
+[ext_resource type="AudioStream" uid="uid://cmcem2mbwg7kd" path="res://assets/sounds/Bfxr/Hit10.wav" id="7_m4kly"]
+[ext_resource type="Texture2D" uid="uid://cfuuo2jta6uan" path="res://assets/64x64 textures (99).png" id="8_m4kly"]
+[ext_resource type="PackedScene" uid="uid://c5l4irv8rhwrn" path="res://components/shield_component/shield_component.tscn" id="8_xgwla"]
+[ext_resource type="Texture2D" uid="uid://bn3ds814imfih" path="res://assets/SpaceShooterAssetPack_Miscellaneous.png" id="9_xgwla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqjtg"]
+atlas = ExtResource("1_cqmt1")
+region = Rect2(0, 0, 24, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwrxv"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ow0dq"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi5m7"]
+atlas = ExtResource("9_xgwla")
+region = Rect2(88, 32, 16, 16)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "health_component", "shield_component", "bullet_timer", "shoot_sound") groups=["player"]]
+collision_layer = 0
+script = ExtResource("1_g7ett")
+sprite = NodePath("Sprite2D")
+health_component = NodePath("HealthComponent")
+shield_component = NodePath("ShieldComponent")
+bullet_timer = NodePath("Timer")
+shoot_sound = NodePath("Shoot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_yqjtg")
+hframes = 3
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uwrxv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_gnkmh")
+max_health = 10
+metadata/_custom_type_script = "uid://du638gieg8flf"
+
+[node name="HurtComponent" parent="." node_paths=PackedStringArray("health_component", "sound", "shield") instance=ExtResource("5_xkryw")]
+collision_layer = 2
+collision_mask = 0
+health_component = NodePath("../HealthComponent")
+sound = NodePath("../Hit")
+shield = NodePath("../ShieldComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_ow0dq")
+debug_color = Color(0.98015696, 0, 0.3859872, 0.41960785)
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xkryw")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_m4kly")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.53125, 0.53125)
+energy = 0.3
+texture = ExtResource("8_m4kly")
+
+[node name="ShieldTimer" type="Timer" parent="."]
+
+[node name="ShieldComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_xgwla")]
+sprite = NodePath("../Shield")
+
+[node name="Shield" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_bi5m7")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://sarhxnfgcpo4"]
+
+[ext_resource type="PackedScene" uid="uid://b2qwe67r0jy62" path="res://objects/bullets/bullet_01.tscn" id="1_f1icu"]
+[ext_resource type="Texture2D" uid="uid://cac626fvognxu" path="res://assets/SpaceShooterAssetPack_Projectiles.png" id="2_ixkdx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42unq"]
+atlas = ExtResource("2_ixkdx")
+region = Rect2(32, 48, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ii8j"]
+radius = 6.0827627
+
+[sub_resource type="Animation" id="Animation_03vbp"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.141592653589793]
+}
+
+[sub_resource type="Animation" id="Animation_6andw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6xp4"]
+_data = {
+&"RESET": SubResource("Animation_6andw"),
+&"idle": SubResource("Animation_03vbp")
+}
+
+[node name="Bullet09" instance=ExtResource("1_f1icu")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(1, 1)
+texture = SubResource("AtlasTexture_42unq")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_5ii8j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_j6xp4")
+}

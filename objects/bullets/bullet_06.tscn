@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc3ixipa6y5t7"]
+
+[ext_resource type="PackedScene" uid="uid://b2qwe67r0jy62" path="res://objects/bullets/bullet_01.tscn" id="1_r2x2o"]
+[ext_resource type="Texture2D" uid="uid://cac626fvognxu" path="res://assets/SpaceShooterAssetPack_Projectiles.png" id="2_7t6uq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpt6v"]
+atlas = ExtResource("2_7t6uq")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_lq103"]
+points = PackedVector2Array(-3, 4, -3, -4, 1, 0)
+
+[node name="Bullet06" instance=ExtResource("1_r2x2o")]
+damage = 3
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-2, 1)
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_mpt6v")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape2D_lq103")
