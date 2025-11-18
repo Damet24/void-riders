@@ -6,6 +6,11 @@ Alongside regular enemies, bosses will appear on certain waves to truly test you
 
 Try to stay alive as long as you can and reach the highest score!
 
+![Descripción de la imagen](Screenshots/1.png)
+![Descripción de la imagen](Screenshots/2.png)
+![Descripción de la imagen](Screenshots/3.png)
+![Descripción de la imagen](Screenshots/4.png)
+
 
 Controls:
 * Arrows - Move
